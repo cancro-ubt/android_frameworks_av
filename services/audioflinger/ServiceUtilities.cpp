@@ -58,11 +58,16 @@ bool captureFmTunerAllowed() {
 }
 
 bool settingsAllowed() {
+
+    ALOGE("bool settingsAllowed()");
+
     if (getpid_cached == IPCThreadState::self()->getCallingPid()) return true;
     static const String16 sAudioSettings("android.permission.MODIFY_AUDIO_SETTINGS");
     // don't use PermissionCache; this is not a system permission
     bool ok = checkCallingPermission(sAudioSettings);
     if (!ok) ALOGE("Request requires android.permission.MODIFY_AUDIO_SETTINGS");
+
+    ALOGE("bool settingsAllowed()");
     return ok;
 }
 

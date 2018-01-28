@@ -4056,7 +4056,7 @@ AudioPolicyManager::AudioPolicyManager(AudioPolicyClientInterface *clientInterfa
         mHwModules[i]->mHandle = mpClientInterface->loadHwModule(mHwModules[i]->mName);
         if (mHwModules[i]->mHandle == 0) {
             ALOGW("could not open HW module %s", mHwModules[i]->mName);
-            continue;
+            //continue;
         }
         // open all output streams needed to access attached devices
         // except for direct output streams that are only opened when they are actually

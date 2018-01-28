@@ -1829,10 +1829,13 @@ Exit:
 
 audio_module_handle_t AudioFlinger::loadHwModule(const char *name)
 {
+    ALOGW("AudioFlinger::loadHwModule() module %s", name);
     if (name == NULL) {
+        ALOGW("AudioFlinger::loadHwModule() module %s  name == NULL ", name);
         return 0;
     }
     if (!settingsAllowed()) {
+        ALOGW("AudioFlinger::loadHwModule() module %s  !settingsAllowed() ", name);
         return 0;
     }
     Mutex::Autolock _l(mLock);
@@ -1842,6 +1845,8 @@ audio_module_handle_t AudioFlinger::loadHwModule(const char *name)
 // loadHwModule_l() must be called with AudioFlinger::mLock held
 audio_module_handle_t AudioFlinger::loadHwModule_l(const char *name)
 {
+    ALOGW("AudioFlinger::loadHwModule_l() module %s  ", name);
+
     for (size_t i = 0; i < mAudioHwDevs.size(); i++) {
         if (strncmp(mAudioHwDevs.valueAt(i)->moduleName(), name, strlen(name)) == 0) {
             ALOGW("loadHwModule() module %s already loaded", name);
