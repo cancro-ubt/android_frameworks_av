@@ -341,6 +341,8 @@ static void parseSizesList(const char *sizesStr, Vector<Size> &sizes)
 {
     if (sizesStr == 0) {
         return;
+    }else{
+       ALOGD("Picture sizes string \"%s\" .", sizesStr);
     }
 
     char *sizeStartPtr = (char *)sizesStr;
